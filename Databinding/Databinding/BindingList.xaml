@@ -23,12 +23,18 @@
                 </Grid.RowDefinitions>
                 
                 <ListView ItemsSource="{Binding Personas}"
-                          SelectedItem="{Binding PersonaSeleccionada, Mode=TwoWay}">
+                          SelectedItem="{Binding PersonaSeleccionada, Mode=TwoWay}"
+                          >
 
                 </ListView>
                 <StackLayout Grid.Row="1" BindingContext="{Binding  PersonaSeleccionada}">
-                    <Label Text="{Binding Nombre, Mode=TwoWay}"></Label>
-                    <Label Text="{Binding Pais, Mode=TwoWay}"></Label>
+                    <Label  Text="{Binding Nombre, Mode=TwoWay}"
+                           HorizontalOptions="Center"
+                           TextColor="Blue"
+                            ></Label>
+                    <Label Text="{Binding Pais, Mode=TwoWay}"
+                           TextColor="Blue"
+                           FontSize="Large"></Label>
                 </StackLayout>
             </Grid>
         </StackLayout>
