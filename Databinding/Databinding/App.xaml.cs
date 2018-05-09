@@ -13,7 +13,7 @@ namespace Databinding
 		{
 			InitializeComponent();
 
-			MainPage = new Databinding.MainPage();
+			MainPage = new Databinding.BindingList();
 		}
 
 		protected override void OnStart ()

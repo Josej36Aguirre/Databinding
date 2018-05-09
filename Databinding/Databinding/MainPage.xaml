@@ -3,9 +3,28 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Databinding"
              x:Class="Databinding.MainPage">
+    
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:Persona x:Key="PersonaUno"
+                           Nombre="Jose"
+                           Pais="Colombia">
+                
+            </local:Persona>
+        </ResourceDictionary>
+        
+    </ContentPage.Resources>
+    <StackLayout   VerticalOptions="Center" 
+           HorizontalOptions="Center">
+        <Label Text="{Binding Nombre, Source={StaticResource PersonaUno},Mode=TwoWay}" 
+            />
+        <Label  Text="{Binding Pais, Source={StaticResource PersonaUno},Mode=TwoWay}" 
+          />
+        <Button x:Name="botonEnviar" Text="Enviar" 
+               />
+    </StackLayout>
 
-	<Label Text="Welcome to Xamarin.Forms!" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
+    
 
 </ContentPage>

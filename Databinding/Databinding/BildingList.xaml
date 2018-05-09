@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:local="clr-namespace:Databinding"
+             x:Class="Databinding.BindingList">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:Datos x:Key="DatosUno"
+                           >
+
+            </local:Datos>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <ListView ItemsSource="{Binding Personas, Source={StaticResource DatosUno}}">
+                    
+                </ListView>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

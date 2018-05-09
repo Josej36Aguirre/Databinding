@@ -12,6 +12,16 @@ namespace Databinding
 		public MainPage()
 		{
 			InitializeComponent();
+
+            botonEnviar.Clicked += BotonEnviar_clicked;
 		}
-	}
+
+        private void BotonEnviar_clicked(object sender, EventArgs e)
+        {
+            var per = (Persona)Resources["PersonaUno"];
+            per.Nombre = "Jose";
+            per.Pais = "Argentina";
+        }
+
+    }
 }
