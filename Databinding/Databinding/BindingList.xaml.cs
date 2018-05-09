@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace Databinding
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class Page1 : ContentPage
+	public partial class BindingList : ContentPage
 	{
-		public Page1 ()
+		public BindingList ()
 		{
 			InitializeComponent ();
 		}
