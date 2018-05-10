@@ -2,13 +2,44 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
               xmlns:local="clr-namespace:Databinding"
-             x:Class="Databinding.BindingList">
+             x:Class="Databinding.BindingList"
+             Title="Binding List view">
     <ContentPage.Resources>
         <ResourceDictionary>
             <local:Datos x:Key="DatosUno"
-                           >
+                           />
+            <local:Converters x:Key="SaldoCoverter"
+                           />
+           
+            <DataTemplate x:Key="listTemplate">
+                
+                <ViewCell>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
 
-            </local:Datos>
+                        </Grid.ColumnDefinitions>
+                        <StackLayout>
+                            <Label  Text="{Binding Nombre}"
+                           FontSize="20"
+                            ></Label>
+                            <Label Text="{Binding Pais}"
+                             FontSize="10"></Label>
+                            
+                            <Label Text="{Binding fechaNacimiento, StringFormat='{}{0:dd/MM/yyyy}'} "
+                                   FontSize="8"></Label>
+
+                        </StackLayout>
+
+                        <Label Text="{Binding saldo, StringFormat='{}{0:c}'}" 
+                            Grid.Column="1"
+                               VerticalTextAlignment="Center"
+                               TextColor="{Binding Saldo, Converter= {StaticResource SaldoCoverter} }">
+                        </Label>
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -22,12 +53,17 @@
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
                 
-                <ListView ItemsSource="{Binding Personas}"
+                <ListView x:Name="listPersonas"
+                          ItemsSource="{Binding Personas}"
                           SelectedItem="{Binding PersonaSeleccionada, Mode=TwoWay}"
+                          HasUnevenRows="True"
+                          ItemTemplate="{StaticResource listTemplate}"
                           >
 
                 </ListView>
-                <StackLayout Grid.Row="1" BindingContext="{Binding  PersonaSeleccionada}">
+                <StackLayout Grid.Row="1" 
+                             HorizontalOptions="Center"
+                             BindingContext="{Binding  PersonaSeleccionada}">
                     <Label  Text="{Binding Nombre, Mode=TwoWay}"
                            HorizontalOptions="Center"
                            TextColor="Blue"
@@ -35,6 +71,11 @@
                     <Label Text="{Binding Pais, Mode=TwoWay}"
                            TextColor="Blue"
                            FontSize="Large"></Label>
+                    <Label Text="{Binding fechaNacimiento, StringFormat='{}{0:dd/MM/yyyy}'} "></Label>
+                    <Label Text="{Binding saldo, StringFormat='{}{0:c}'}" 
+                           TextColor="Blue"></Label>
+
+
                 </StackLayout>
             </Grid>
         </StackLayout>
