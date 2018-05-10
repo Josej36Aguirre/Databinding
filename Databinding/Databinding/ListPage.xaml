@@ -8,7 +8,7 @@
             <ListView x:Name="listaVista"
                       HasUnevenRows="True"
                       RowHeight="50"
-                      ItemsSource="{Binding Paginas}">
+                      ItemsSource="{Binding Paginas}"> 
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
